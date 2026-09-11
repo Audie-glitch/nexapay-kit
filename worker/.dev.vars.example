@@ -1,0 +1,8 @@
+# Copy to .dev.vars for local wrangler dev (do not commit .dev.vars)
+# Leave NEXAPAY_API_KEY empty to use mock checkout at /demo/checkout
+# NEXAPAY_API_KEY=
+# NEXAPAY_WEBHOOK_SECRET=
+PUBLIC_BASE_URL=http://127.0.0.1:8787
+SUCCESS_URL=http://127.0.0.1:5173/success
+CANCEL_URL=http://127.0.0.1:5173/cancel
+ALLOWED_ORIGIN=*

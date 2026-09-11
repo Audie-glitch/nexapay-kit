@@ -1,0 +1,25 @@
+{
+  "name": "nexapay-kit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generic NexaPay integration kit — demo UI, React drop-ins, and Cloudflare Worker stub",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "worker"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@nexapay-kit/demo",
+    "dev:demo": "npm run dev --workspace=@nexapay-kit/demo",
+    "dev:worker": "npm run dev --workspace=@nexapay-kit/worker",
+    "build": "npm run build --workspace=@nexapay-kit/react && npm run build --workspace=@nexapay-kit/demo",
+    "build:demo": "npm run build --workspace=@nexapay-kit/demo",
+    "build:react": "npm run build --workspace=@nexapay-kit/react",
+    "build:worker": "npm run build --workspace=@nexapay-kit/worker",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@nexapay-kit/worker",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cloudflare Worker stub for NexaPay create-payment + webhooks",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --port 8787",
+    "deploy": "wrangler deploy",
+    "build": "wrangler deploy --dry-run --outdir=dist",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20241022.0",
+    "typescript": "^5.6.3",
+    "wrangler": "^3.84.0"
+  },
+  "license": "MIT"
+}

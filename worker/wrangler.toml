@@ -1,0 +1,14 @@
+name = "nexapay-kit"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+
+# Optional non-secret defaults (override per env / dashboard)
+[vars]
+ALLOWED_ORIGIN = "*"
+# PUBLIC_BASE_URL = "https://nexapay-kit.YOUR_SUBDOMAIN.workers.dev"
+# SUCCESS_URL = "https://your-site.example/success"
+# CANCEL_URL = "https://your-site.example/cancel"
+
+# Secrets (set with: wrangler secret put NEXAPAY_API_KEY)
+# NEXAPAY_API_KEY
+# NEXAPAY_WEBHOOK_SECRET
