@@ -1,75 +1,144 @@
 import { Link } from 'react-router-dom';
 
+function CheckIcon() {
+  return (
+    <span className="check-icon" aria-hidden="true">
+      <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2.5 6.2 4.8 8.5 9.5 3.5" />
+      </svg>
+    </span>
+  );
+}
+
+function LockIcon() {
+  return (
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <rect x="3" y="7" width="10" height="7" rx="1.5" />
+      <path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2" />
+    </svg>
+  );
+}
+
 export function HomePage() {
   return (
     <>
       <section className="hero" aria-labelledby="hero-title">
         <div>
-          <p className="status-pill">Drop-in kit · any site</p>
-          <h1 id="hero-title">NexaPay Kit</h1>
-          <p className="lead">
-            A clean integration pack for accepting NexaPay checkouts from any website:
-            polished demo UI, a Cloudflare Worker backend stub, and a React button/hook
-            you can copy into your product. API keys stay on the server — never in the
-            browser.
+          <p className="hero-badge">
+            <CheckIcon />
+            Lowest fees from 16+ providers
           </p>
+          <h1 id="hero-title">
+            Accept <span className="grad-text">cards</span>. Settle in{' '}
+            <span className="grad-text">crypto</span>.
+          </h1>
+          <p className="lead">
+            Drop NexaPay checkout into any site. Cards in, USDC out — Worker stub, React
+            button, and a polished demo that mirrors nexapay.one.
+          </p>
+          <ul className="feature-checks">
+            <li>
+              <CheckIcon />
+              Instant card → USDC settlement
+            </li>
+            <li>
+              <CheckIcon />
+              API keys stay on the Worker
+            </li>
+            <li>
+              <CheckIcon />
+              Mock checkout when no key set
+            </li>
+            <li>
+              <CheckIcon />
+              Webhook HMAC ready
+            </li>
+          </ul>
           <div className="btn-row">
             <Link className="btn btn--primary" to="/pay">
-              Try Pay page
+              Try checkout
             </Link>
             <Link className="btn btn--ghost" to="/embed">
-              See embed button
+              Embed button
             </Link>
-            <a
-              className="btn btn--ghost"
-              href="https://nexapay.one/docs"
-              target="_blank"
-              rel="noreferrer"
-            >
-              API docs
-            </a>
           </div>
+          <p className="trust-line">Trusted pattern for 195+ countries · Instant delivery</p>
         </div>
-        <aside className="panel panel--soft" aria-label="How it works">
-          <h2>How to drop into any site</h2>
-          <ol className="steps">
-            <li>
-              <span className="step-num">1</span>
-              <span>Deploy the Worker; set <code>NEXAPAY_API_KEY</code> (optional for mock).</span>
-            </li>
-            <li>
-              <span className="step-num">2</span>
-              <span>POST from your frontend to Worker <code>/create-payment</code>.</span>
-            </li>
-            <li>
-              <span className="step-num">3</span>
-              <span>Redirect the buyer to <code>checkout_url</code>.</span>
-            </li>
-            <li>
-              <span className="step-num">4</span>
-              <span>Handle success/cancel pages + webhook HMAC verification.</span>
-            </li>
-          </ol>
+
+        <aside className="buy-widget" aria-label="Live-looking checkout preview">
+          <div className="buy-widget__methods" aria-hidden="true">
+            <span className="method-pill">Apple Pay</span>
+            <span className="method-pill">Google Pay</span>
+            <span className="method-pill">Visa</span>
+            <span className="method-pill">Mastercard</span>
+          </div>
+          <div className="buy-field">
+            <div>
+              <span className="buy-field__label">You spend</span>
+              <div className="buy-field__value">25.00</div>
+            </div>
+            <div className="buy-field__meta">
+              <div className="buy-field__currency">USD ▾</div>
+              <div className="buy-field__sub">Card</div>
+            </div>
+          </div>
+          <div className="buy-field">
+            <div>
+              <span className="buy-field__label">You receive</span>
+              <div className="buy-field__value">25.00</div>
+            </div>
+            <div className="buy-field__meta">
+              <div className="buy-field__currency">USDC</div>
+              <div className="buy-field__sub">USD Coin</div>
+            </div>
+          </div>
+          <div className="buy-widget__rate">
+            <span>1 USDC ≈ $1.00</span>
+            <span>Fees included</span>
+          </div>
+          <Link className="btn btn--primary btn--block btn--lg" to="/pay" style={{ marginTop: '0.85rem' }}>
+            Buy USDC
+          </Link>
+          <div className="buy-widget__secure">
+            <LockIcon />
+            Secured by NexaPay · Demo kit
+          </div>
         </aside>
       </section>
 
       <section className="grid-cards" aria-label="Kit contents">
         <article className="panel card-mini">
+          <div className="card-mini__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="4" width="18" height="16" rx="3" />
+              <path d="M3 9h18" />
+            </svg>
+          </div>
           <h3>Demo app</h3>
-          <p>Mobile-first checkout pages you can walk through without charging anyone.</p>
+          <p>Marketing-grade Pay and Embed flows you can walk through without charging anyone.</p>
         </article>
         <article className="panel card-mini">
+          <div className="card-mini__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" />
+            </svg>
+          </div>
           <h3>React package</h3>
           <p>
-            <code>NexaPayButton</code> and <code>useNexaPayCheckout</code> — redirect or
-            popup mode.
+            <code>NexaPayButton</code> and <code>useNexaPayCheckout</code> — redirect or popup
+            mode.
           </p>
         </article>
         <article className="panel card-mini">
+          <div className="card-mini__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 3 4 7v5c0 5 3.5 8.5 8 9 4.5-.5 8-4 8-9V7l-8-4Z" />
+            </svg>
+          </div>
           <h3>Worker stub</h3>
           <p>
-            Health, create-payment, webhooks, and a simulated <code>/demo/checkout</code>{' '}
-            when no API key is set.
+            Health, create-payment, webhooks, and a simulated <code>/demo/checkout</code> when
+            no API key is set.
           </p>
         </article>
       </section>

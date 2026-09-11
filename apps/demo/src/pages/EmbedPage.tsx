@@ -50,6 +50,7 @@ export function EmbedPage() {
 
   return (
     <section aria-labelledby="embed-title">
+      <p className="status-pill">React drop-in</p>
       <h1 id="embed-title">Embed</h1>
       <p className="lead">
         Drop-in <code>NexaPayButton</code> wired to the local worker at{' '}
@@ -57,7 +58,7 @@ export function EmbedPage() {
       </p>
 
       <div className="embed-live">
-        <div className="panel">
+        <div className="panel panel--lift">
           <h2>Live button</h2>
           <p className="hint" style={{ marginTop: 0, marginBottom: '1rem' }}>
             Starts checkout via <code>POST /create-payment</code>. In mock mode you get
